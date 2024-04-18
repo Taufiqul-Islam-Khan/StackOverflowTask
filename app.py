@@ -59,4 +59,4 @@ def index():
                            tag=tag, num_days=num_days, num_questions=num_questions)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')
