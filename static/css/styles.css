@@ -1,0 +1,144 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+}
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  background-image: linear-gradient(45deg, #553c9a, #ee4b2b);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.navbar {
+  background-color: #a0b8d3a1;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.top_container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #a0b8d3a1;
+}
+.container {
+  background-color: #a0b8d3a1;
+  width: calc(50% - 20px);
+  margin-bottom: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.required {
+  color: red;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+button:hover {
+  background-color: #859fbb;
+}
+
+.submit {
+  background-color: #007bfff5;
+}
+
+.view {
+  padding: 6px 35px;
+  background-color: #8a99a8fb;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+  text-decoration: none;
+  font-family: helvetica, arial, sans-serif;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.view a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.view a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.question {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.question:hover {
+  background-color: #f0f0f0;
+}
+
+.question strong {
+  font-size: 18px;
+  text-align: auto;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #3b98fc;
+  color: white;
+  padding: 4px 8px;
+  margin-right: 4px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.positive-score {
+  background-color: lightgreen;
+}
+
+.negative-score {
+  background-color: lightcoral;
+}
+
+.zero-score {
+  background-color: lightblue;
+}

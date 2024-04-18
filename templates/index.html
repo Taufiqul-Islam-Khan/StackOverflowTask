@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Your Research Question</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <h2>Stay Updated with the Latest and Top Voted Questions</h2>
+    </div>
+
+    <div class="top_container">
+      <h1>Search Your Research Question:</h1>
+
+      <form action="/" method="POST">
+        <label for="tag">Keyword:<span class="required">*</span></label>
+        <input
+          type="text"
+          id="tag"
+          name="tag"
+          value="{{ tag }}"
+          required
+        /><br /><br />
+
+        <label for="num_days"
+          >Number of Days Back from Today:<span class="required">*</span></label
+        >
+        <input
+          type="number"
+          id="num_days"
+          name="num_days"
+          min="1"
+          max="30"
+          value="{{ num_days }}"
+          required
+        /><br /><br />
+
+        <label for="num_questions"
+          >Number of Questions:<span class="required">*</span></label
+        >
+        <input
+          type="number"
+          id="num_questions"
+          name="num_questions"
+          min="1"
+          max="50"
+          value="{{ num_questions }}"
+          required
+        /><br /><br />
+
+        <button class="submit">Update</button>
+      </form>
+    </div>
+
+    <div class="container-wrapper">
+      <div class="container">
+        <h2>
+          Top {{ num_questions }} Most Voted Questions (Searched for: {{ tag }},
+          Last {{ num_days }} Days)
+        </h2>
+        {% if most_voted_questions %} {% for question in most_voted_questions %}
+        <div
+          class="question {% if question['score'] > 0 %} positive-score {% elif question['score'] < 0 %} negative-score {% else %} zero-score {% endif %}"
+        >
+          <strong>{{ question['title'] }}</strong><br /><br />
+          <button class="view">
+            <a href="{{ question['link'] }}" target="_blank">View Content</a>
+          </button>
+          Score: {{ question['score'] }}<br /><br />
+          Number of People Given Answer: {{ question['answer_count'] }}<br /><br />
+          Common topic of This Question Can be : {% for tag in question['tags']
+          %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endfor %} {% else %}
+        <p>No most voted questions found.</p>
+        {% endif %}
+      </div>
+      <div class="container">
+        <h2>
+          Top {{ num_questions }} Newest Questions (Searched for: {{ tag }},
+          Last {{ num_days }} Days)
+        </h2>
+        {% if newest_questions %} {% for question in newest_questions %}
+        <div
+          class="question {% if question['score'] > 0 %} positive-score {% elif question['score'] < 0 %} negative-score {% else %} zero-score {% endif %}"
+        >
+          <strong>{{ question['title'] }}</strong><br /><br />
+          <button class="view">
+            <a href="{{ question['link'] }}" target="_blank">View Content</a>
+          </button>
+          Score: {{ question['score'] }}<br /><br />
+          Number of People Given Answer: {{ question['answer_count'] }}<br /><br />
+          Common topic of This Question Can be : {% for tag in question['tags']
+          %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endfor %} {% else %}
+        <p>No newest questions found.</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
